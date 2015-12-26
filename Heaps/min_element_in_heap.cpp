@@ -77,11 +77,22 @@ percolateup(h,h->count-1);
 
 }
 
+void min(struct heap * h)
+{
+int up=((h->count-1)-1)/2;
+int min=100000;
+for(int i=up+1;i<h->count;i++)
+    if(min>h->array[i])
+        min=h->array[i];
+
+printf("\nmin was found as %d \n",min);
+}
+
 int main()
 {
 struct heap * h=create_heap(100);
 insert_element(h,31);
-insert_element(h,1);
+insert_element(h,43);
 insert_element(h,21);
 insert_element(h,5);
 insert_element(h,10);
@@ -91,7 +102,7 @@ insert_element(h,3);
 insert_element(h,2);
 insert_element(h,8);
 insert_element(h,71);
-
+min(h);
 
 
 h->count=11;
